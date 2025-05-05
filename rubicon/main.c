@@ -11,8 +11,18 @@ int wind_hight = DEFAULT_WINDOW_HIGHT;
 SDL_Window* wind = NULL;
 SDL_Renderer* render = NULL;
 
-void draw(){
+void drawSin(float x, float y, float w, float h, int samples){
+  float s[samples];
+  float ratio = (float)1/samples;
+  for (int i = 0; i < samples; i++){
+    s[i] = (float)ratio*i;
+  }
   
+}
+void draw(){
+  SDL_SetRenderDrawColorFloat(render, 255, 255, 255, SDL_ALPHA_OPAQUE_FLOAT);  
+  drawSin(100, 100, 10, 10, 10);
+
 }
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]){
   SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
@@ -62,6 +72,8 @@ SDL_AppResult SDL_AppIterate(void *appstate){
   const float g = (float)(0.5 + 0.5 * SDL_sin(now + c2));
   SDL_SetRenderDrawColorFloat(render, r, g, b, SDL_ALPHA_OPAQUE_FLOAT);  
   SDL_RenderClear(render); 
+
+  draw();
 
   SDL_RenderPresent(render);
 
