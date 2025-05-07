@@ -1,0 +1,50 @@
+this is more schizophrenic ramblings so sorry in advance.
+Few things are set in stone.
+
+
+name: "What is on the rubicon?" abbreviated to "Rubicon."
+Genre: survival crafting/factory game.
+graphics: 2D pixel art with elevation style view.(to be determined)
+game elements:
+Players: single player.
+languages: c/c++.
+Platform: PC
+
+gameplay loop:
+The player's goal is to charge their batteries before they run out of charge.
+each factory has the potential to create power but 
+
+gaming assets:
+  -factories:
+
+Story synopsis: 
+You are a robot who was fragmented into many pieces 
+and have to assemble yourself. Learning the mysteries along the way.
+(I have more ideas but I want to keep this first prototype small).
+
+concept art: (it will be shitty).
+  -the main character:
+  -the FLB(fragment load bearer): sudo "neurons" 
+  -factory buildings:
+    -
+  -DAT(data analize transform): sudo "data pearls"
+  decals:
+
+  random:
+major inspirations: 
+  Rain world: art and story.
+  Caesar's Crossing The Rubicon: story.
+  Factorio: gameplay loop.
+  ARK: gameplay loop.
+
+full story:
+
+game mechanics:
+1: power and memory are resources you, the main character, are dependent on.
+2: The main character is composed of two parts, the wire frame and the FLB.
+
+controls:
+the FLB follows the mouse with a little delay serving as the main vision to the player
+The FLB cannot interact with the world, except batters and data pearls which are essential to its survival/progression.
+
+

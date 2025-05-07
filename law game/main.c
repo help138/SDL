@@ -7,11 +7,15 @@
 #define DEFAULT_WINDOW_HIGHT 480
 
 int wind_width = DEFAULT_WINDOW_WIDTH;
-int wind_hight = DEFAULT_WINDOW_HIGHT;
+int wind_hight = DEFAULT_WINDOW_HIGHT; 
 
 SDL_Window* wind = NULL;
 SDL_Renderer* render = NULL;
 
+
+void draw(){
+
+}
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]){
   SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
   SDL_CreateWindowAndRenderer("callback demo", wind_width, wind_hight, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OCCLUDED | SDL_WINDOW_MAXIMIZED /*| SDL_WINDOW_MOUSE_GRABBED | SDL_WINDOW_FULLSCREEN*/, &wind, &render);
