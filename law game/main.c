@@ -12,6 +12,15 @@ int wind_hight = DEFAULT_WINDOW_HIGHT;
 SDL_Window* wind = NULL;
 SDL_Renderer* render = NULL;
 
+void drawUI(){
+  
+}
+void drawRoad(){
+  
+}
+void draw(){
+
+}
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]){
   SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
   SDL_CreateWindowAndRenderer("callback demo", wind_width, wind_hight, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OCCLUDED | SDL_WINDOW_MAXIMIZED /*| SDL_WINDOW_MOUSE_GRABBED | SDL_WINDOW_FULLSCREEN*/, &wind, &render);
@@ -56,8 +65,10 @@ SDL_AppResult SDL_AppIterate(void *appstate){
   const float g = (float)(0.5 + 0.5 * SDL_sin(now + c2));
   SDL_SetRenderDrawColorFloat(render, r, g, b, SDL_ALPHA_OPAQUE_FLOAT);  
   SDL_RenderClear(render);
-
-  SDL_RenderPresent(render); 
+  
+  draw();
+  
+  SDL_RenderPresent(render);
 
   return SDL_APP_CONTINUE;
 }
