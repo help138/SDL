@@ -28,7 +28,7 @@ char** openHeaderFile(char* Hpath){
   for (int i = 0; i < len; i++){
     buff[i] = (char*)calloc(FILENAME_MAX, sizeof(char));
     int ii = 0;
-    do {
+    do{
       ch = fgetc(head);
         buff[i][ii++] = ch;
     } while (ch != ASCII_VAL_STAR);
@@ -58,11 +58,11 @@ void readfile(const char* fname){
 
   fclose(file);
 }
-int fexists(const char *fname){
-  FILE *file;
+int fexists(const char* fname){
+  FILE* file;
   if ((file = fopen(fname, "r"))){
-      fclose(file);
-      return 1;
+    fclose(file);
+    return 1;
   }
   return 0;
 }

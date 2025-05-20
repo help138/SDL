@@ -8,7 +8,6 @@
 
 int wind_width = DEFAULT_WINDOW_WIDTH;
 int wind_hight = DEFAULT_WINDOW_HIGHT; 
-
 SDL_Window* wind = NULL;
 SDL_Renderer* render = NULL;
 
@@ -36,9 +35,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event){
     case SDL_EVENT_QUIT:
         return SDL_APP_SUCCESS; 
     case SDL_EVENT_KEY_DOWN:
-      if (event->key.key == SDLK_ESCAPE || event->key.key == SDLK_Q){
-        return SDL_APP_SUCCESS; 
-      }
+      if (event->key.key == SDLK_ESCAPE) return SDL_APP_SUCCESS; 
           break;
     case SDL_EVENT_WINDOW_RESIZED:
       wind_width = event->window.data1;

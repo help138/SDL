@@ -1,4 +1,5 @@
 $save = Get-Location;
+$filter = ".c", ".txt", ".js", ".mlog", ".ahk", ".s", ".ps1", ".h", ".py", ".rs", ".html", ".git", ".gitignore", ".cpp", ".c++", ".sh" ; 
 function createHeaderFile {
   param (
     [string]$ctx,
