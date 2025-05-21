@@ -2,22 +2,33 @@
 #include "inc/SDL.h"
 #include "inc/SDL_main.h"
 #include <iostream>
-#include "classes.hpp" //TODO: move to includes
+#include "classes.hpp" //TODO: move to inc
 
 #define DEFAULT_WINDOW_WIDTH 640 
 #define DEFAULT_WINDOW_HIGHT 480
 
+const double c1 = SDL_PI_D*2/3;
+const double c2 = SDL_PI_D*4/3;
 int wind_width = DEFAULT_WINDOW_WIDTH;
 int wind_hight = DEFAULT_WINDOW_HIGHT; 
 SDL_Window* wind = NULL;
 SDL_Renderer* render = NULL;
 
 void draw(){
+  size_t count;
+  count = SDL_GetTicks();
+  double now = (double)(count/1000.0);
+  const float r = (float)(0.5 + 0.5 * SDL_sin(now));
+  const float b = (float)(0.5 + 0.5 * SDL_sin(now + c1));
+  const float g = (float)(0.5 + 0.5 * SDL_sin(now + c2));
+  SDL_SetRenderDrawColorFloat(render, r, g, b, SDL_ALPHA_OPAQUE_FLOAT);  
+  SDL_RenderClear(render);
+  
 
 }
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]){
   SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
-  SDL_CreateWindowAndRenderer("callback demo", wind_width, wind_hight, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OCCLUDED | SDL_WINDOW_MAXIMIZED /*| SDL_WINDOW_MOUSE_GRABBED | SDL_WINDOW_FULLSCREEN*/, &wind, &render);
+  SDL_CreateWindowAndRenderer("callback demo", wind_width, wind_hight, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OCCLUDED /*| SDL_WINDOW_MAXIMIZED | SDL_WINDOW_MOUSE_GRABBED | SDL_WINDOW_FULLSCREEN*/, &wind, &render);
   
   if (wind == NULL){
     printf("failed to create window: %s\n", SDL_GetError());
@@ -27,7 +38,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]){
     printf("failed to render: %s\n", SDL_GetError());
     return SDL_APP_FAILURE;  
   }
-
+	
   return SDL_APP_CONTINUE;  
 }
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event){
@@ -47,16 +58,9 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event){
   return SDL_APP_CONTINUE;
 }
 SDL_AppResult SDL_AppIterate(void *appstate){
-  size_t count;
-  const double c1 = SDL_PI_D*2/3;
-  const double c2 = SDL_PI_D*4/3;
-  count = SDL_GetTicks();
-  double now = (double)(count/1000.0);
-  const float r = (float)(0.5 + 0.5 * SDL_sin(now));
-  const float b = (float)(0.5 + 0.5 * SDL_sin(now + c1));
-  const float g = (float)(0.5 + 0.5 * SDL_sin(now + c2));
-  SDL_SetRenderDrawColorFloat(render, r, g, b, SDL_ALPHA_OPAQUE_FLOAT);  
-  SDL_RenderClear(render);
+
+  draw();
+  
 
   SDL_RenderPresent(render); 
 
